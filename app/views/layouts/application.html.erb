@@ -7,14 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Message Board</a>
+    </div>
+    <% if current_user %>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+      </ul>
+      <p class="navbar-text pull-right"><%= current_user.email %> | 
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </p>
+    <% end %>
+  </div>
+</div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 
+
 <p> Before yield </p>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 <p> After yield </p>
 
