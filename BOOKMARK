@@ -1,0 +1,85 @@
+Sun Apr 20 12:16:55 EDT 2014
+http://docs.railsbridge-montreal.com/intermediate-rails/make_it_pretty_with_bootstrap?back=install_devise%23step
+
+  http://getbootstrap.com/css/
+  http://getbootstrap.com/css/#buttons
+  http://getbootstrap.com/css/#forms
+  http://getbootstrap.com/components/#thumbnails
+  http://getbootstrap.com/components/#jumbotron
+  
+  
+
+Have a look at 
+  http://www.jackiejohnston.us/blog/setting-up-user-authentication-with-devise/
+What is worth keeping?
+  http://www.jackiejohnston.us/
+
+This is design I want:
+  http://www.onextrapixel.com/2012/11/12/how-to-use-twitter-bootstrap-to-create-a-responsive-website-design/
+
+<!DOCTYPE html>
+ <html>
+ <head>
+         <meta charset="utf-8">
+         <title>Getting started with Bootstrap</title>
+         <link rel="stylesheet"
+href="http://flip.hr/css/bootstrap.min.css">
+ </head>
+ <body>
+         
+ <div class="container">
+         
+         <div class="hero-unit">
+         <h1>Awesome responsive layout</h1>
+         <p>Hello guys i am a ".hero-unit" and you can use me if you wanna
+say something important.</p>
+         <p><a class="btn btn-primary btn-large">Super important
+&raquo;</a></p>
+         </div><!-- .hero-unit -->
+        
+ <div class="row">
+         <div class="span4">
+         <h2>Box Number 1</h2>
+         <p>Donec id elit non mi porta gravida at eget metus. Fusce
+dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+mollis euismod. Donec sed odio dui. </p>
+         <p><a class="btn" href="#">Click meeee &raquo;</a></p>
+         </div><!-- .span4 -->
+   
+         <div class="span4">
+                 <h2>Box Number 2</h2>
+         <p>Donec id elit non mi porta gravida at eget metus. Fusce
+dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+mollis euismod. Donec sed odio dui. </p>
+         <p><a class="btn" href="#">Click meeee &raquo;</a></p>
+         </div><!-- .span4 -->
+   
+         <div class="span4">
+                 <h2>Box Number 3</h2>
+         <p>Donec id elit non mi porta gravida at eget metus. Fusce
+dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+mollis euismod. Donec sed odio dui. </p>
+         <p><a class="btn" href="#">Click meeee &raquo;</a></p>
+         </div><!-- .span4 -->
+   
+ </div><!-- .row -->
+ </div><!-- .container -->
+     
+ </body>
+</html>
+
+
+
+Thu Apr 17 08:47:52 EDT 2014
+http://docs.railsbridge-montreal.com/intro-to-rails/credits_and_next_steps?back=clean_up_links_on_the_topics_list%23step3
+
+http://ruby.railstutorial.org/chapters/static-pages#sec-static_pages
+
+https://github.com/plataformatec/devise
+https://github.com/plataformatec/devise#controller-filters-and-helpers
+
+http://guides.rubyonrails.org/getting_started.html
+
