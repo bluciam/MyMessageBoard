@@ -1,10 +1,20 @@
 Messageboard::Application.routes.draw do
+#  get "replies/new"
+#  get "replies/edit"
+  resources :posts
+  resources :replies
+#  get "posts/edit"
+#  get "posts/create"
+#  get "posts/show"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+#   root 'home#index'
+   root 'posts#index'
+   match '/home',  to: 'home#index',        via: 'get'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

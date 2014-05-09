@@ -1,8 +1,8 @@
+<div class="jumbotron">
+
+
 <h1>Welcome to my web site!</h1>
 
-
-
-<div>
 <% if user_signed_in? %>
 <small>
 Signed in as <%= current_user.email %>. Not you?
@@ -12,8 +12,7 @@ Signed in as <%= current_user.email %>. Not you?
 <%= link_to "Sign up", new_user_registration_path %> or
 <%= link_to "Sign in", new_user_session_path %>
 <% end %>
-</div>
+</div><!-- .jumbotron -->
 
-<p>
-<p>
+
 
