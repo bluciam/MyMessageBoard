@@ -1,0 +1,16 @@
+
+<h1>Edit post</h1>
+
+<div class="jumbotron">
+
+<%= bootstrap_form_for @post do |f| %>
+  <%= f.text_field :title %><br>
+  <%= f.text_area :content %><br>
+
+  <%= f.submit "Edit post", class: "btn btn-primary "  %>
+<% end %>
+
+
+</div><!-- .jumbotron -->
+
+<%= render "links" %>

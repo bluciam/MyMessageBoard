@@ -1,0 +1,27 @@
+/* 
+$navbar-default-bg: #312312;
+*/
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+.jumbotron:after {
+          background: linear-gradient(rgba(255,255,255,0),
+rgba(255,255,255,1)), url('rails.png');
+          bottom: 0;
+          content: "";
+          display: block;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 2;
+}
+
+.jumbotron {
+   position: relative;
+}
+
+@import "bootstrap";
+
+
+//= require rails_bootstrap_forms

@@ -1,0 +1,60 @@
+<div class="container">
+
+<div class="row">
+  <div class="col-xs-4">
+
+    <h1><%= @post.title %></h1>
+    <p><%= @post.content %>
+    <p>posted by <%= @post.user.email %><br>
+    <p>on <%= @post.created_at %>
+
+  </div><!-- .col-xs-4 -->
+
+<% if @post.replies.count != 0 %>
+
+  <div class="col-xs-4">
+
+  <h3>Replies</h3>
+
+  <table class="table">
+  <% @post.replies.each do|r| %>
+    <tr>
+        <%= r.content %>
+      <p align="right">
+        -- <%= r.user.email %> on <%= r.created_at %>
+      </p>
+    </tr>
+  <% end %>
+  </table>
+
+  </div><!-- .col-xs-4 -->
+
+<% end %><!-- if @post.replies.count -->
+
+  <div class="col-xs-4 txt-m pull-right" vertical-align="middle">
+
+  <% @reply = Reply.new %>
+  <%= form_for @reply do |f| %>
+    <%= f.submit "Add reply", class: "btn btn-primary pull-right"  %>
+    <h4><%= f.text_area :content %></h4>
+    <%= hidden_field_tag "post_id", @post.id %>
+    <%= hidden_field_tag "format", @post.id %>
+
+
+  <% end %>
+
+
+  </div><!-- .col-xs-4 -->
+
+</div><!-- .row -->
+
+<%= link_to "Add reply", new_reply_path(@post.id), 
+    class: "btn btn-primary " %>
+<%= link_to "Edit post", edit_post_path(@post.id), 
+    class: "btn btn-primary " %>
+
+<%= render "links" %>
+
+
+</div><!-- .container -->
+

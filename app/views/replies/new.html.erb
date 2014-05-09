@@ -1,0 +1,19 @@
+
+<h1>Reply to post <font color="orange"><%= Post.find(params[:format]).title %></font> </h1>
+
+
+<div class="jumbotron">
+
+<%= bootstrap_form_for @reply do |f| %>
+  <%= f.text_area :content %><br>
+  <%= hidden_field_tag "post_id", params[:format] %>
+  <%= hidden_field_tag "format", params[:format] %>
+
+  <%= f.submit "Reply", class: "btn btn-primary "  %>
+<% end %>
+
+
+</div><!-- .jumbotron -->
+
+<!--
+-->
