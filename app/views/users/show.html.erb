@@ -1,0 +1,83 @@
+<div class="container">
+
+<div class="row">
+  <div class="col-xs-4">
+
+  <h1>
+    <%= @user.firstname %>
+    <%= @user.lastname %>
+  </h1>
+  <h4>
+    <%= @user.email %>
+  </h4>
+  <p>
+    <%= gravatar_for @user %>
+  </p>
+  <%= link_to "Edit profile", edit_user_path(@user),
+      class: "btn btn-default pull-right" %>
+
+  </div><!-- .col-xs-4 -->
+
+
+  <div class="col-xs-4">
+  <% if @user.posts.count != 0 %>
+    <h2> All posts </h2>
+
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <% @user.posts.each do |p| %>
+        <tr>
+          <td valign="top">
+ <!--
+            <b><%= p.title %></b>
+-->
+          <%= link_to p.title, post_path(p) %>
+          </td>
+          <td>
+            <%= p.content %>
+          </td>
+        </tr>
+        <tr >
+          <td colspan=2>
+            <p align="right"><font size="-1">
+            <%= p.created_at.to_formatted_s(:long_ordinal) %>
+            </font></p>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    </div><!-- .table-responsive -->
+
+  <% end %>
+  </div><!-- .col-xs-4 -->
+
+  <div class="col-xs-4">
+  <% if @user.replies.count != 0 %>
+    <h2> All replies </h2>
+    <table class="table">
+      <% @user.replies.each do |r| %>
+        <tr>
+          <td>
+            <%= r.content %>
+          </td>
+          <td>
+           to "<%= link_to r.post.title, post_path(r.post) %>"
+          </td>
+
+<!--       
+            to "<%= r.post.title %>"
+            <font size="-2">
+            (<%= r.created_at.to_formatted_s(:short) %>)
+            <p align="right">
+            <%= r.created_at.to_formatted_s(:long_ordinal) %> 
+-->
+
+        </tr>
+
+      <% end %>
+    </table>
+  <% end %>
+
+  </div><!-- .col-xs-4 -->
+
+</div><!-- .container -->

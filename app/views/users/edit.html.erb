@@ -1,0 +1,29 @@
+
+<h1>Change user profile </h1>
+<div class="jumbotron">
+<div class="container">
+
+<div class="row">
+  <div class="col-xs-4">
+    <%= gravatar_for @user, size: 220   %>
+  </div><!-- .col-xs-4 -->
+
+
+  <div class="col-xs-4">
+
+
+<%= bootstrap_form_for @user do |u| %>
+  <%= u.text_field :firstname %>
+  <%= u.text_field :lastname %>
+  <%= u.text_field :email %>
+
+  <%= u.submit "Edit", class: "btn btn-primary" %>
+<% end %>
+  </div><!-- .col-xs-4 -->
+
+  <div class="col-xs-4">
+  </div><!-- .col-xs-4 -->
+
+</div>
+</div>
+</div>

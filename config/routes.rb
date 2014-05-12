@@ -1,12 +1,14 @@
 Messageboard::Application.routes.draw do
-#  get "replies/new"
-#  get "replies/edit"
-  resources :posts
-  resources :replies
-#  get "posts/edit"
-#  get "posts/create"
-#  get "posts/show"
   devise_for :users
+  resources :users
+#  get "users/new"
+#  get "users/edit"
+#  resources :users
+  
+#  get 'users/show'
+  resources :posts
+  resources :replies, only: [:new, :create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
