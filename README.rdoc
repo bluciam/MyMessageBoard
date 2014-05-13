@@ -1,6 +1,8 @@
 == README
 
-Soon to be updated! Under development...
+Under development...
+Working on securing site, allowing access only to authorized users.
+More features.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
