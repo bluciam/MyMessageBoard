@@ -1,0 +1,29 @@
+<h1>All Users</h1>
+
+<table class="table table-striped">
+<% @users.each do |u| %>
+  <tr>
+    <td>
+      <%= gravatar_for u, size:30 %>
+    </td>
+    <td>
+      <%= u.firstname %>
+      <%= u.lastname %>
+    </td>
+    <td>
+      <%= u.email %>
+    </td>
+    <td>
+      Published posts: <%= u.posts.count %>
+    </td>
+    <td>
+      Replies: <%= u.replies.count %>
+    </td>
+    <td>
+      <%= link_to "Edit profile" %>
+    </td>
+  </tr>
+<% end %>
+
+
+</table>

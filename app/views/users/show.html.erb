@@ -64,6 +64,12 @@
            to "<%= link_to r.post.title, post_path(r.post) %>"
           </td>
 
+          <td> by
+          <a href="<%= user_path(r.post.user.id) %>">
+    <%= gravatar_for r.post.user, size: 40 %>
+    <%= r.post.user.firstname %>
+          </a>
+          </td>
 <!--       
             to "<%= r.post.title %>"
             <font size="-2">
