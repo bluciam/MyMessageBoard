@@ -25,13 +25,18 @@ http://api.rubyonrails.org/classes/DateTime.html#method-i-to_formatted_s
       <% end %>
       |
       <%= link_to "Add reply", new_reply_path(post.id) %>
+    
     </td>
+
     <td>
+    <% if can? :destroy, post %>
       <%= link_to "Delete post", post_path(post.id), method: :delete %>
+    <% end %>
     </td>
   </tr>
 <% end %>
 </table>
+
 
 <%= link_to "Add new post", new_post_path, class:"btn btn-primary" %>
 

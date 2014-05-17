@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
+  before_action :load_post, only: :create
+  load_and_authorize_resource
+  #instance varialve @post is not necessary to set
+
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :content))
+#    @post = Post.new(params.require(:post).permit(:title, :content))
     @post.user = current_user
     @post.save
     if @post.errors.any?
@@ -31,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+#    @posts = Post.all
   end
 
   def show
@@ -43,4 +47,15 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+
+
+  private
+    def load_post 
+      @post = Post.new(post_params)
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end
+
 end
