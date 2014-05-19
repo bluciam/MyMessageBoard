@@ -1,10 +1,12 @@
 class RepliesController < ApplicationController
+  before_action :load_reply, only: :create
+  load_and_authorize_resource
+
   def new
     @reply = Reply.new
   end
 
   def create
-    @reply = Reply.new(params.require(:reply).permit(:content))
     @reply.user = current_user
     @reply.post = Post.find(params["post_id"])
     @reply.save
@@ -17,4 +19,13 @@ class RepliesController < ApplicationController
 
   def edit
   end
+
+  private
+    def load_reply
+      @reply = Reply.new(reply_params)
+    end
+
+    def reply_params
+      params.require(:reply).permit(:content)
+    end
 end

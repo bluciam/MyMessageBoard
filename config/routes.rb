@@ -1,6 +1,9 @@
 Messageboard::Application.routes.draw do
   devise_for :users, 
-    :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+    :controllers => { 
+      :omniauth_callbacks => "users/omniauth_callbacks",
+      :registrations => 'my_devise/registrations'
+    }
   resources :users
 #  get "users/new"
 #  get "users/edit"

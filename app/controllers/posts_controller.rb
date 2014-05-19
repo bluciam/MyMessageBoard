@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :load_post, only: :create
-  load_and_authorize_resource
-  #instance varialve @post is not necessary to set
+  load_and_authorize_resource #instance variable @post is not necessary to set
+                              #that is why they are commented out
 
   def new
-    @post = Post.new
+#    @post = Post.new
   end
 
   def create
@@ -19,11 +19,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+#    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+#    @post = Post.find(params[:id])
     attributes = params.require(:post).permit(:title, :content)
     @post.update_attributes(attributes)
 
@@ -39,11 +39,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+#    @post = Post.find(params[:id])
   end
 
   def destroy
-    @post = Post.find(params[:id])
+#    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end

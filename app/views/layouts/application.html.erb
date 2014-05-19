@@ -26,11 +26,24 @@
       <p class="navbar-text pull-right"><%= current_user.email %> | 
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </p>
+    <% else %>
+       <p class="navbar-text pull-right">
+          <%= link_to "Sign in", new_user_session_path %>
+       </p>
+       <p class="navbar-text pull-right">
+          <%= link_to "Sign up", new_user_registration_path %>
+       </p>
+
     <% end %>
   </div>
 </div>
+<!--
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+-->
+     <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
 
 
 

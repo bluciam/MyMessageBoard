@@ -23,9 +23,11 @@ http://api.rubyonrails.org/classes/DateTime.html#method-i-to_formatted_s
       <% else %>
         <%= 'reply'.pluralize %> 
       <% end %>
-      |
-      <%= link_to "Add reply", new_reply_path(post.id) %>
-    
+      <%= can? :create, Reply %> <!-- always giving true -->
+      <% if user_signed_in? %>
+        |
+        <%= link_to "Add reply", new_reply_path(post.id) %>
+      <% end %>
     </td>
 
     <td>

@@ -2,11 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
+    user ||= User.new ## allowing visitors
     ## admin can do all
     if user.admin? 
       can :manage, :all
     else
+      can :read, User
+      can :manage, User do |u|
+        u.id == user.id 
+      end
       ## visitor can read posts
       can :read, Post
       ## Posts can be updated only by onwer of post
@@ -22,12 +26,14 @@ class Ability
         !user.lastname.nil?
       end
       ## Replies can be updated only by onwer of reply
-      can :update, Reply do |reply|
-        post.try(:user) == user
-      end
+      # can :update, Reply do |reply|
+      #   post.try(:user) == user
+      # end
       ## Only logged in users can create replies
+      ## is not working...
       can :create, Reply do |reply|
-        !user.lastname.nil?
+        user.lastname != nil
+#        user.lastname.nil?
       end
     end
       

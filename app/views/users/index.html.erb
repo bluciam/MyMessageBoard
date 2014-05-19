@@ -20,7 +20,9 @@
       Replies: <%= u.replies.count %>
     </td>
     <td>
-      <%= link_to "Edit profile" %>
+      <% if current_user == u %>
+        <%= link_to "Edit profile", user_path(u) %>
+      <% end %>
     </td>
   </tr>
 <% end %>
