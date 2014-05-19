@@ -14,27 +14,28 @@ class Ability
       ## visitor can read posts
       can :read, Post
       ## Posts can be updated only by onwer of post
-      can :destroy, Post do |post|
-        post.user == user
+
+      ## Only logged in users can create replies
+      ## is not working... I think is now works
+      if user.lastname.kind_of?(String)
+        can [:new, :create], [Reply, Post]
+ #       can :create, Reply
       end
       can :update, Post do |post|
-        post.try(:user) == user
+        post.nil? || post.try(:user) == user
       end
       ## Only logged in users can create posts
-      can :create, Post do |post|
+   ## This code does not work! i donot know why...
+#      cannot :create, Post do |post|
 #        user.lastname != nil
-        !user.lastname.nil?
-      end
+#        user.lastname.nil?
+#      end
+
       ## Replies can be updated only by onwer of reply
       # can :update, Reply do |reply|
       #   post.try(:user) == user
       # end
-      ## Only logged in users can create replies
-      ## is not working...
-      can :create, Reply do |reply|
-        user.lastname != nil
-#        user.lastname.nil?
-      end
+
     end
       
 

@@ -23,8 +23,7 @@ http://api.rubyonrails.org/classes/DateTime.html#method-i-to_formatted_s
       <% else %>
         <%= 'reply'.pluralize %> 
       <% end %>
-      <%= can? :create, Reply %> <!-- always giving true -->
-      <% if user_signed_in? %>
+      <% if can? :create, Reply %> 
         |
         <%= link_to "Add reply", new_reply_path(post.id) %>
       <% end %>
@@ -39,8 +38,9 @@ http://api.rubyonrails.org/classes/DateTime.html#method-i-to_formatted_s
 <% end %>
 </table>
 
-
-<%= link_to "Add new post", new_post_path, class:"btn btn-primary" %>
+<% if can? :create, Post %> 
+  <%= link_to "Add new post", new_post_path, class:"btn btn-primary" %>
+<% end %>
 
 <!--
 
@@ -50,5 +50,7 @@ http://api.rubyonrails.org/classes/DateTime.html#method-i-to_formatted_s
 <%= r.content %><br>
 <% end %>
 
+      <% if user_signed_in? %>
+<% end %>
 
 -->

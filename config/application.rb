@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Messageboard
   class Application < Rails::Application
+    ## from http://stackoverflow.com/questions/18478706/rails-undefined-method-user-signed-in
+    ## Still did not fix cancan not finding user_signed_in not found
+    ## config.action_controller.include_all_helpers = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
