@@ -14,15 +14,18 @@ class Ability
       ## visitor can read posts
       can :read, Post
       ## Posts can be updated only by onwer of post
+      ### cancan does not check the block when it is class!
+      if user.lastname.kind_of?(String)
+        can [:edit, :update], Post do |post|
+          post.try(:user) == user
+        end
+      end
 
       ## Only logged in users can create replies
       ## is not working... I think is now works
       if user.lastname.kind_of?(String)
         can [:new, :create], [Reply, Post]
  #       can :create, Reply
-      end
-      can :update, Post do |post|
-        post.nil? || post.try(:user) == user
       end
       ## Only logged in users can create posts
    ## This code does not work! i donot know why...
