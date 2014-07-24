@@ -15,7 +15,7 @@ class Ability
       can :read, Post
       ## Posts can be updated only by onwer of post
       ### cancan does not check the block when it is class!
-      if user.lastname.kind_of?(String)
+      if user.email.kind_of?(String)
         can [:edit, :update], Post do |post|
           post.try(:user) == user
         end
